@@ -1,0 +1,31 @@
+*{
+  margin: 0;
+  padding: 5px;
+}
+header{
+  background-color: white;
+  text-align: center;
+}
+div{
+  padding: 5px;
+}
+body{
+  background:  #ffff99;
+  text-align: center;
+}
+.container{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.grid{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-row: 5px;
+  align-items: center;
+}
+.grid > img{
+  object-fit: cover;
+  max-height: 100%;
+  max-width: 100%;
+}

@@ -1,0 +1,47 @@
+<html lang="en" dir="ltr">
+    <head>
+    	<title>Naive Bayes Demo</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+<link rel="stylesheet" href="index.css">
+<header>
+  <h1>Machine Learning Algorithms</h1>
+  <h2>Naive Bayes Supervised<h2>
+</header>
+    </head>
+    <body>
+      <div>This is a simplified example with semi-randomly generated data. It is meant to explain/visualize how one might use a naive bayes algorithm in order to solve real world problems. </div>
+      <div class="grid">
+      <img src="Bayes_picture.jpeg" alt=""></img>
+      <div class="nested">
+      <div>Bayes Theorum is a well studied formula for determining probabilities based on prior events</div>
+      <div>In the example below we'll use Naive Bayes theorum--meaning we'll consider each property independently.</div>
+      <div>Probability of a good loan given loan size to income ratio</div>
+      <div>Probability of a good loan given total debt to income ratio</div>
+      </div>
+    </div>
+
+<d1>Imagine you manage a local bank branch. Recently,your loan team has been swamped with work. On top of that, you notice that your loan default rates are higher than most of the other branches.
+Now, you have lots of data on prior loans made by each branch and you want to see if theres any way you can use this data to improve your loan department's performance. </d1>
+<div id="Current_Message"></div>
+<div class="container">
+  <div class="item">Income</div><div class="item">Debt</div><div class="item">Loan Amount</div><div class="item">Paid in Full</div>
+<div class="item"></div><div class="item"></div><div class="item"></div><div class="item"></div>
+  <div id = "item_1" class="item"></div><div id = "item_2"  class="item"></div><div id = "item_3" class="item"></div><div id = "item_4" class="item"></div>
+  <div id = "item_5" class="item"></div><div  id = "item_6" class="item"></div><div id = "item_7" class="item"></div><div id = "item_8" class="item"></div>
+  <div id = "item_9" class="item">...</div><div  id = "item_10" class="item">...</div><div id = "item_11" class="item">...</div><div id = "item_12" class="item">...</div>
+    <div id = "item_13" class="item"></div><div  id = "item_14" class="item"></div><div id = "item_15" class="item"></div><div id = "item_16" class="item"></div>
+</div>
+<div>We'll use Bayes theorum in order to come up with a model to help with this issue. This is referred to as a supervised algorithm because it requires "training" in order to deliver results.
+This training process analyzes your prior history of loans in order to come up with a prediction algorithm for future loan applications.
+</div>
+
+<button onclick="train()">Initiate Training</button>
+
+
+<div id="Upper_Message"></div>
+<canvas id="myChart"></canvas>
+<div id="Bottom_Message"></div>
+      <script src="index.js"></script>
+    </body>
+
+</html>
