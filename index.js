@@ -1,4 +1,9 @@
 
+/*Functionality for Naive Bayes
+creates pseudo-random data
+uses bayes theory in order to generate independed probabilities for each variable
+displays a bubblechart with the probabilities translated into bubblesize to visualize decision-making
+*/
 
 let combinedlist=[];
 let statisticalList=[[],[],[]];
@@ -7,7 +12,7 @@ let debt;
 let loanAmount;
 let paidInFull;
 
-//sets up global list to be used for data
+//creates pseudo-random data and sets up lists for use in analysis
 for (let index=0;index<4;index++){
 combinedlist.push([]);
 }
@@ -68,9 +73,7 @@ statisticalList[0].push(Math.floor((debt/income)*10)/10);
 statisticalList[1].push(Math.floor((loan/income)*10)/10);
 statisticalList[2].push(paidInFull);
 }
-console.log(statisticalList[0][0]);
-console.log(statisticalList[1][0]);
-console.log(statisticalList[2][0]);
+
 
 document.getElementById("item_1").innerText=combinedlist[0][0];
 document.getElementById("item_2").innerText=combinedlist[1][0];
@@ -112,7 +115,7 @@ function train(){
   for (let ratio=0; ratio<=.91;ratio=ratio+.1){
     ratioList.push([[0],[0]]);
 }
-console.log(ratioList);
+
 
 for (let i=0;i<statisticalList[1].length;i++){
     for (let z=0;z<ratios.length;z++){
@@ -125,15 +128,12 @@ for (let i=0;i<statisticalList[1].length;i++){
   }
 }
 }
-console.log(ratioList);
-console.log(ratioList[0]);
-console.log(ratioList[1]);
+
 for (let i=0; i<ratioList.length;i++){
   ratioList[i][0]=ratioList[i][0]/(statisticalList[1].length);
   ratioList[i][1]=ratioList[i][1]/totalGoodLoans;
 }
-console.log("after");
-console.log(ratioList);
+
 debtToIncomeList=[];
 
 for (let ratio=0; ratio<2;ratio=ratio+.1){
@@ -151,7 +151,7 @@ for (let i=0;i<statisticalList[0].length;i++){
 }
 }
 }
-console.log(debtToIncomeList);
+
 for (let i=0; i<debtToIncomeList.length;i++){
   debtToIncomeList[i][0]=debtToIncomeList[i][0]/(statisticalList[0].length);
   debtToIncomeList[i][1]=debtToIncomeList[i][1]/totalGoodLoans;
@@ -160,13 +160,12 @@ console.log(debtToIncomeList);
 
 let pGood=totalGoodLoans/count;
 resultingList=[];
-console.log(pGood);
+
 for (let i=0; i<debtToIncomeList.length;i++){
     for (let z=0;z<ratioList.length;z++){
       let probability1=ratioList[z][1]*pGood/ratioList[z][0];
       let probability2=debtToIncomeList[i][1]*pGood/debtToIncomeList[i][0];
-      console.log(probability1);
-      console.log(probability2);
+      
       let thingy=15;
       if (probability1*probability2>.85){
         thingy=12;
@@ -183,12 +182,12 @@ for (let i=0; i<debtToIncomeList.length;i++){
         console.log(resultingList[(i*ratioList.length)+z]);
     }
   }
-  //let data=[];
+ 
   let goodData=[];
   let medData=[];
   let badData=[];
   for (let i=0;i<resultingList.length;i++){
-  //  data.push({x:resultingList[i][0],y:resultingList[i][1],r:resultingList[i][3]});
+
     if (resultingList[i][2]>=.85){
       goodData.push({x:resultingList[i][0],y:resultingList[i][1],r:resultingList[i][3]});
     }else if (resultingList[i][2]>=.7){
@@ -197,7 +196,7 @@ for (let i=0; i<debtToIncomeList.length;i++){
       badData.push({x:resultingList[i][0],y:resultingList[i][1],r:resultingList[i][3]});
     }
   }
-  //console.log(data);
+  
 let ctx=document.getElementById("myChart");
 Chart.defaults.global.animation.duration = 2000;
   let totalDataset=[
